@@ -1,0 +1,9 @@
+D:\Andriy\123\PharmaShop\PharmaDatabase\bin\Debug\PharmaDatabase.dacpac
+D:\Andriy\123\PharmaShop\PharmaDatabase\bin\Debug\PharmaDatabase.dll
+D:\Andriy\123\PharmaShop\PharmaDatabase\bin\Debug\PharmaDatabase.pdb
+D:\Andriy\123\PharmaShop\PharmaDatabase\obj\Debug\Model.xml
+D:\Andriy\123\PharmaShop\PharmaDatabase\obj\Debug\refactor.xml
+D:\Andriy\123\PharmaShop\PharmaDatabase\obj\Debug\postdeploy.sql
+D:\Andriy\123\PharmaShop\PharmaDatabase\obj\Debug\predeploy.sql
+D:\Andriy\123\PharmaShop\PharmaDatabase\obj\Debug\PharmaDatabase.dll
+D:\Andriy\123\PharmaShop\PharmaDatabase\obj\Debug\PharmaDatabase.pdb
