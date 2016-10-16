@@ -1,0 +1,5 @@
+C:\Users\Taras_Kovalyk\AppData\Roaming\Skype\My Skype Received Files\Parking\Parking\Parking.Entities\bin\Debug\Parking.Entities.dll
+C:\Users\Taras_Kovalyk\AppData\Roaming\Skype\My Skype Received Files\Parking\Parking\Parking.Entities\bin\Debug\Parking.Entities.pdb
+C:\Users\Taras_Kovalyk\AppData\Roaming\Skype\My Skype Received Files\Parking\Parking\Parking.Entities\obj\Debug\Parking.Entities.csprojResolveAssemblyReference.cache
+C:\Users\Taras_Kovalyk\AppData\Roaming\Skype\My Skype Received Files\Parking\Parking\Parking.Entities\obj\Debug\Parking.Entities.dll
+C:\Users\Taras_Kovalyk\AppData\Roaming\Skype\My Skype Received Files\Parking\Parking\Parking.Entities\obj\Debug\Parking.Entities.pdb

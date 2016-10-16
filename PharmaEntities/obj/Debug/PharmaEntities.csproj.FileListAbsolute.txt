@@ -1,0 +1,15 @@
+D:\Andriy\Parking\PharmaEntities\bin\Debug\PharmaEntities.dll
+D:\Andriy\Parking\PharmaEntities\bin\Debug\PharmaEntities.pdb
+D:\Andriy\Parking\PharmaEntities\obj\Debug\PharmaEntities.csprojResolveAssemblyReference.cache
+D:\Andriy\Parking\PharmaEntities\obj\Debug\PharmaEntities.dll
+D:\Andriy\Parking\PharmaEntities\obj\Debug\PharmaEntities.pdb
+D:\Andriy\123\PharmaShop\PharmaEntities\bin\Debug\PharmaEntities.dll
+D:\Andriy\123\PharmaShop\PharmaEntities\bin\Debug\PharmaEntities.pdb
+D:\Andriy\123\PharmaShop\PharmaEntities\obj\Debug\PharmaEntities.dll
+D:\Andriy\123\PharmaShop\PharmaEntities\obj\Debug\PharmaEntities.pdb
+D:\Andriy\123\PharmaShop\PharmaEntities\obj\Debug\PharmaEntities.csprojResolveAssemblyReference.cache
+C:\Users\Elenka\Desktop\PharmaShop\PharmaEntities\bin\Debug\PharmaEntities.dll
+C:\Users\Elenka\Desktop\PharmaShop\PharmaEntities\bin\Debug\PharmaEntities.pdb
+C:\Users\Elenka\Desktop\PharmaShop\PharmaEntities\obj\Debug\PharmaEntities.csprojResolveAssemblyReference.cache
+C:\Users\Elenka\Desktop\PharmaShop\PharmaEntities\obj\Debug\PharmaEntities.dll
+C:\Users\Elenka\Desktop\PharmaShop\PharmaEntities\obj\Debug\PharmaEntities.pdb
