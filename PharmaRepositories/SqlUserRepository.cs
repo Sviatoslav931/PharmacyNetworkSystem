@@ -33,6 +33,7 @@ namespace PharmaRepositories
 
         public User GetUserByLogin(string login, string password)
         {
+            User user = null;
             var connection = new SqlConnection(_connectionString);
             try
             {
@@ -46,7 +47,7 @@ namespace PharmaRepositories
                     command.Parameters.AddWithValue("@Password", password);
                     using (var reader = command.ExecuteReader())
                     {
-                        User user = null;
+                        
                         if (reader.Read())
                         {
                             user = new User();
@@ -59,19 +60,19 @@ namespace PharmaRepositories
                             user.ShopID = (shopId.ToString() == "") ? -1 : (int)shopId;
                             user.Disabled = (bool)reader["Disabled"];
                         }
-                        return user;
                     }
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-                return null;
             }
             finally
             {
                 connection.Close();
+
             }
+            return user;
         }
 
         #endregion

@@ -188,6 +188,7 @@ namespace PharmaShop
             var connectionString = ConfigurationManager.ConnectionStrings["PharmaDB"].ConnectionString;
             using (var connection = new SqlConnection(connectionString))
             {
+                var lastId = 0;
                 var command = new SqlCommand();
                 try
                 {
@@ -197,21 +198,18 @@ namespace PharmaShop
                     command.CommandType = CommandType.StoredProcedure;
                     command.CommandText = "spGetLastIdInOrders";
                     var reader = command.ExecuteScalar();
-                    if (reader == null)
-                    {
-                        return 0;
-                    }
-                    return (int) reader;
+                    
+                    lastId = (int) reader;
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message);
-                    return 0;
                 }
                 finally
                 {
                     connection.Close();
                 }
+                return lastId;
             }
         }
 
@@ -220,6 +218,7 @@ namespace PharmaShop
             var connectionString = ConfigurationManager.ConnectionStrings["PharmaDB"].ConnectionString;
             using (var connection = new SqlConnection(connectionString))
             {
+                var shopAddress = "";
                 var command = new SqlCommand();
                 try
                 {
@@ -230,42 +229,38 @@ namespace PharmaShop
                     command.CommandText = "spGetShopAddressById";
                     command.Parameters.AddWithValue("@ShopId", currentShopId);
                     var reader = command.ExecuteScalar();
-                    if (reader == null)
-                    {
-                        return "";
-                    }
-                    return reader.ToString();
+                    
+                    shopAddress = reader.ToString();
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message);
-                    return "";
                 }
                 finally
                 {
                     connection.Close();
                 }
+                return shopAddress;
             }
         }
 
         private int GetDiscountForSumm(double totalSumm)
         {
+            var discount = 0;
             if (totalSumm > 10000)
             {
-                return 8;
+                discount = 8;
             }
             else if (totalSumm > 3000)
             {
-                return 5;
+                discount = 5;
             }
             else if (totalSumm > 1000)
             {
-                return 3;
+                discount = 3;
             }
-            else
-            {
-                return 0;
-            }
+            
+            return discount;
         }
 
         private int GetProductNumberById(int currentProductId)
@@ -273,6 +268,7 @@ namespace PharmaShop
             var connectionString = ConfigurationManager.ConnectionStrings["PharmaDB"].ConnectionString;
             using (var connection = new SqlConnection(connectionString))
             {
+                var productsNumber = 0;
                 var command = new SqlCommand();
                 try
                 {
@@ -283,21 +279,18 @@ namespace PharmaShop
                     command.CommandText = "spGetProductNumberById";
                     command.Parameters.AddWithValue("@productID", currentProductId);
                     var reader = command.ExecuteScalar();
-                    if (reader == null)
-                    {
-                        return 0;
-                    }
-                    return (int)reader;
+
+                    productsNumber = (int)reader;
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message);
-                    return 0;
                 }
                 finally
                 {
                     connection.Close();
                 }
+                return productsNumber;
             }
         }
         
@@ -442,14 +435,12 @@ namespace PharmaShop
                 medicamentId = Convert.ToInt32(dataGridViewProducts.CurrentRow.Cells["medicamentID"].Value);
                 medicamentName = dataGridViewProducts.CurrentRow.Cells["productsName"].Value.ToString();
                 medicamentDose = dataGridViewProducts.CurrentRow.Cells["productsDose"].Value.ToString();
+                GetRangesFromCurrShopByCurrMedicament(medicamentId, medicamentName, medicamentDose);
             }
             else
             {
-                MessageBox.Show("Nothing selected.");
-                return;
+                MessageBox.Show("No medicament selected.");
             }
-
-            GetRangesFromCurrShopByCurrMedicament(medicamentId, medicamentName, medicamentDose);
         }
 
         private void buttonClearCart_Click(object sender, EventArgs e)

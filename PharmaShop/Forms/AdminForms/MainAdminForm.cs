@@ -61,7 +61,7 @@ namespace PharmaShop
             var connectionString = ConfigurationManager.ConnectionStrings["PharmaDB"].ConnectionString;
             using (var connection = new SqlConnection(connectionString))
             {
-
+                string totalSell = "0";
                 var command = new SqlCommand();
                 try
                 {
@@ -81,22 +81,19 @@ namespace PharmaShop
                                                 + "') AND orderDelete = 0";
 
                     var reader = command.ExecuteScalar();
-                    if (reader == null)
-                    {
-                        return "0";
-                    }
-                    return reader.ToString();
+                    
+                    totalSell = reader.ToString();
                     
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message);
-                    return "0";
                 }
                 finally
                 {
                     connection.Close();
                 }
+                return totalSell;
             }
         }
 
