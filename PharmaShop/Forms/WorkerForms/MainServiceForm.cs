@@ -7,7 +7,10 @@ using System.Text;
 using System.Windows.Forms;
 using PharmaShop.Code;
 using PharmaRepositories;
-
+//Kindrat S.V. In General:
+// Do not use Repository for data base work.
+//Use specific Exception
+//Do not use finally code block inside using.If you use using statement the finally block will be created behind the scenes
 namespace PharmaShop
 {
     public partial class MainServiceForm : Form
@@ -82,7 +85,10 @@ namespace PharmaShop
                 }
             }
         }
-
+ //Kindrat S.V.       
+//It must be implemented in your Repositories that is responsible for it
+//Do not work with your DataGrid in this method (Single Responsibility)
+//Better return some IEnumerable<Entity> and than fill your datagrid
         private void GetAllAvailableMedicaments(string medicamentName="")
         {
             var connectionString = ConfigurationManager.ConnectionStrings["PharmaDB"].ConnectionString;
@@ -102,13 +108,16 @@ namespace PharmaShop
 
                     while (reader.Read())
                     {
+                    //Kindrat S.V.
+                    //Use your Enteties 
+                    //Use Nullable type. Or check is data from data reader null?
                         var id = reader[0].ToString();
                         var medicamentId = reader[1].ToString();
                         var name = reader[2].ToString();
                         var dose = reader[3].ToString();
                         var price = reader[4].ToString();
                         var number = reader[5].ToString();
-
+                        
                         var currentIndex = dataGridViewProducts.Rows.Add(id, medicamentId, name, dose, price, number);
                         if (number == "0")
                         {
@@ -120,10 +129,14 @@ namespace PharmaShop
                     reader.Close();
 
                 }
+                //Kindrat S.V
+                //Before it you can use SqlException
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message);
                 }
+                //Kindrat S.V
+                //Using close connection in any way
                 finally
                 {
                     connection.Close();
@@ -169,7 +182,7 @@ namespace PharmaShop
         {
             double summ = 0;
             var i = 0;
-
+            
             foreach (DataGridViewRow row in dataGridViewCart.Rows)
             {
                 double totalPrice = 0;
