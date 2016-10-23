@@ -8,9 +8,8 @@ using System.Windows.Forms;
 using PharmaShop.Code;
 using PharmaRepositories;
 //Kindrat S.V. In General:
-// Do not use Repository for data base work.
+//You do not use Repository for data base work.
 //Use specific Exception
-//Do not use finally code block inside using.If you use using statement the finally block will be created behind the scenes
 namespace PharmaShop
 {
     public partial class MainServiceForm : Form
@@ -87,7 +86,7 @@ namespace PharmaShop
         }
  //Kindrat S.V.       
 //It must be implemented in your Repositories that is responsible for it
-//Do not work with your DataGrid in this method (Single Responsibility)
+//Not work with your DataGrid in this method (Single Responsibility)
 //Better return some IEnumerable<Entity> and than fill your datagrid
         private void GetAllAvailableMedicaments(string medicamentName="")
         {
@@ -110,7 +109,7 @@ namespace PharmaShop
                     {
                     //Kindrat S.V.
                     //Use your Enteties 
-                    //Use Nullable type. Or check is data from data reader null?
+                    //Use Nullable type. Or check is datas from data reader null?
                         var id = reader[0].ToString();
                         var medicamentId = reader[1].ToString();
                         var name = reader[2].ToString();
@@ -135,8 +134,7 @@ namespace PharmaShop
                 {
                     MessageBox.Show(ex.Message);
                 }
-                //Kindrat S.V
-                //Using close connection in any way
+
                 finally
                 {
                     connection.Close();
